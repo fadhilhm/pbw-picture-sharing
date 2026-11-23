@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:17
+    restart: always
+    container_name: tubes
+    environment:
+      POSTGRES_DB: pbw-picturesharing
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./src/resources/db:/docker-entrypoint.initdb.d
+
+volumes:
+  postgres_data:
