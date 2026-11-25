@@ -6,7 +6,7 @@ CREATE TABLE account(
     url_pfp VARCHAR(50),
     is_active BOOLEAN NOT NULL,
     created_at TIMESTAMP NOT NULL,
-    role VARCHAR NOT NULL,
+    role VARCHAR(10) NOT NULL,
 
     CONSTRAINT role_values
         CHECK ( role IN ('admin', 'user') )
