@@ -8,4 +8,5 @@ public interface PostRepository {
     Optional<Post> findById(int id);
     List<Post> findAll();
     void deleteById(int id);
+    List<Post> findByDescription(String description);
 }

@@ -42,6 +42,11 @@ public class JdbcPostRepository implements PostRepository{
         jdbcTemplate.update(sql,id);
     }
 
+    public List<Post> findByDescription(String description){
+        String sql="SELECT * FROM posts WHERE description ILIKE ?";
+        return jdbcTemplate.query(sql,this::mapRowToPost,"%"+description+"%");
+    }
+
     private Post mapRowToPost(ResultSet rs,int rowNum) throws SQLException {
         return new Post(
                 rs.getInt("id"),
